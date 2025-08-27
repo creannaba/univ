@@ -146,7 +146,6 @@
             <div class="lab-details">
                 <h3>تعريف بالمخبر</h3>
                 <p>يختص هذا المخبر بإجراء التحليلات الفيزيائية والكيميائية للتربة ومصادر المياه المختلفة. يحتوي على أجهزة متطورة لقياس درجة الحموضة (pH)، الملوحة، الملوثات العضوية، والمعادن الثقيلة، بالإضافة إلى معدات لجمع العينات وتحليلها.</p>
-
                 <h3>الأجهزة والمعدات</h3>
                 <ul>
                     <li>جهاز قياس الحموضة (pH-meter)</li>
@@ -157,9 +156,9 @@
             </div>
             <hr>
             <h2>نموذج طلب حجز</h2>
-            <form action="#" method="post">
+            <form id="form-soil-water" onsubmit="sendEmail(event, 'form-soil-water')">
                 <label for="full-name-1">الاسم الكامل:</label>
-                <input type="text" id="full-name-1" name="full-name" required>
+                <input type="text" id="full-name-1" name="name" required>
                 <label for="email-1">البريد الإلكتروني:</label>
                 <input type="email" id="email-1" name="email" required>
                 <label for="date-1">تاريخ الحجز:</label>
@@ -177,7 +176,6 @@
             <div class="lab-details">
                 <h3>تعريف بالمخبر</h3>
                 <p>مخصص للبحوث المتعلقة بمصادر الطاقة المتجددة، مثل الطاقة الشمسية وطاقة الرياح. يتضمن أجهزة لمحاكاة الظروف البيئية، واختبار كفاءة الألواح الشمسية، وتطوير أنظمة تخزين الطاقة.</p>
-
                 <h3>الأجهزة والمعدات</h3>
                 <ul>
                     <li>ألواح شمسية ومقاييس إشعاع</li>
@@ -187,9 +185,9 @@
             </div>
             <hr>
             <h2>نموذج طلب حجز</h2>
-            <form action="#" method="post">
+            <form id="form-renewable-energy" onsubmit="sendEmail(event, 'form-renewable-energy')">
                 <label for="full-name-2">الاسم الكامل:</label>
-                <input type="text" id="full-name-2" name="full-name" required>
+                <input type="text" id="full-name-2" name="name" required>
                 <label for="email-2">البريد الإلكتروني:</label>
                 <input type="email" id="email-2" name="email" required>
                 <label for="date-2">تاريخ الحجز:</label>
@@ -207,7 +205,6 @@
             <div class="lab-details">
                 <h3>تعريف بالمخبر</h3>
                 <p>يركز على دراسة الكائنات الحية وتفاعلها مع البيئة. يوفر معدات لدراسات الحمض النووي (DNA)، وتحليل الجينات، وتصنيف الكائنات، ودراسة النظم البيئية المحلية.</p>
-
                 <h3>الأجهزة والمعدات</h3>
                 <ul>
                     <li>أجهزة PCR لتحليل DNA</li>
@@ -217,9 +214,9 @@
             </div>
             <hr>
             <h2>نموذج طلب حجز</h2>
-            <form action="#" method="post">
+            <form id="form-biodiversity" onsubmit="sendEmail(event, 'form-biodiversity')">
                 <label for="full-name-3">الاسم الكامل:</label>
-                <input type="text" id="full-name-3" name="full-name" required>
+                <input type="text" id="full-name-3" name="name" required>
                 <label for="email-3">البريد الإلكتروني:</label>
                 <input type="email" id="email-3" name="email" required>
                 <label for="date-3">تاريخ الحجز:</label>
@@ -237,7 +234,6 @@
             <div class="lab-details">
                 <h3>تعريف بالمخبر</h3>
                 <p>يقوم بتحليل المواد الكيميائية وتأثيرها على البيئة. يضم أجهزة تحليل كروماتوغرافية (Chromatography) و spectrometers لقياس الملوثات الكيميائية في الهواء والماء والتربة.</p>
-
                 <h3>الأجهزة والمعدات</h3>
                 <ul>
                     <li>جهاز كروماتوغرافي للغازات</li>
@@ -247,9 +243,9 @@
             </div>
             <hr>
             <h2>نموذج طلب حجز</h2>
-            <form action="#" method="post">
+            <form id="form-environmental-chem" onsubmit="sendEmail(event, 'form-environmental-chem')">
                 <label for="full-name-4">الاسم الكامل:</label>
-                <input type="text" id="full-name-4" name="full-name" required>
+                <input type="text" id="full-name-4" name="name" required>
                 <label for="email-4">البريد الإلكتروني:</label>
                 <input type="email" id="email-4" name="email" required>
                 <label for="date-4">تاريخ الحجز:</label>
@@ -267,7 +263,6 @@
             <div class="lab-details">
                 <h3>تعريف بالورشة</h3>
                 <p>توفر هذه الورشة الأدوات والمعدات اللازمة لتصميم وتصنيع وصيانة الأجهزة الإلكترونية المستخدمة في الأبحاث. تشمل معدات اللحام، أجهزة القياس الرقمية، ومعدات النماذج الأولية (prototyping) للدوائر الإلكترونية.</p>
-
                 <h3>الأجهزة والمعدات</h3>
                 <ul>
                     <li>أجهزة لحام إلكترونية</li>
@@ -277,9 +272,9 @@
             </div>
             <hr>
             <h2>نموذج طلب حجز</h2>
-            <form action="#" method="post">
+            <form id="form-electronics" onsubmit="sendEmail(event, 'form-electronics')">
                 <label for="full-name-5">الاسم الكامل:</label>
-                <input type="text" id="full-name-5" name="full-name" required>
+                <input type="text" id="full-name-5" name="name" required>
                 <label for="email-5">البريد الإلكتروني:</label>
                 <input type="email" id="email-5" name="email" required>
                 <label for="date-5">تاريخ الحجز:</label>
@@ -291,15 +286,32 @@
         </div>
     </div>
 
-    <script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('QDMvJKgB1WdswKl2R');
+        })();
+
         function showSection(sectionId) {
-            // إخفاء جميع الأقسام
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
                 section.classList.remove('active');
             });
-            // إظهار القسم المطلوب
             document.getElementById(sectionId).classList.add('active');
+        }
+
+        function sendEmail(event, formId) {
+            event.preventDefault();
+            const form = document.getElementById(formId);
+
+            emailjs.sendForm('service', 'template_lzc9jl5', form)
+                .then(() => {
+                    alert('تم إرسال طلب الحجز بنجاح!');
+                    form.reset();
+                }, (error) => {
+                    alert('فشل إرسال طلب الحجز. يرجى المحاولة مرة أخرى.');
+                    console.log('FAILED...', error);
+                });
         }
     </script>
 

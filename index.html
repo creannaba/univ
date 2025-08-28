@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مركز البحث في البيئة - نظام حجز المخابر</title>
+    <title>Centre de recherche en environnement - Système de réservation de laboratoires</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,7 +18,7 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: right;
+            text-align: left;
         }
         h1 {
             color: #004d40;
@@ -66,17 +66,17 @@
             display: block;
         }
         .section {
-            display: none; /* إخفاء جميع الأقسام بشكل افتراضي */
+            display: none; /* Masquer toutes les sections par défaut */
         }
         .section.active {
-            display: block; /* إظهار القسم النشط */
+            display: block; /* Afficher la section active */
         }
         .lab-details p {
             line-height: 1.6;
             color: #666;
         }
         form {
-            text-align: right;
+            text-align: left;
             margin-top: 30px;
         }
         label {
@@ -129,159 +129,159 @@
 
     <div class="container">
         <div id="main-menu" class="section active">
-            <h2>قائمة المخابر وورشة الإلكترونيك</h2>
+            <h2>Liste des laboratoires et de l'atelier d'électronique</h2>
             <ul>
-                <li onclick="showSection('soil-water-lab')">مخبر تحليل التربة والمياه</li>
-                <li onclick="showSection('renewable-energy-lab')">مخبر الطاقة المتجددة</li>
-                <li onclick="showSection('biodiversity-lab')">مخبر التنوع البيولوجي</li>
-                <li onclick="showSection('environmental-chem-lab')">مخبر الكيمياء البيئية</li>
-                <li onclick="showSection('electronics-workshop')">ورشة الإلكترونيك</li>
+                <li onclick="showSection('lab-1')">Laboratoire physico-chimique</li>
+                <li onclick="showSection('lab-2')">Laboratoire de surveillance environnementale</li>
+                <li onclick="showSection('lab-3')">Laboratoire microbiologique</li>
+                <li onclick="showSection('lab-4')">Laboratoire de cyto-toxicologie</li>
+                <li onclick="showSection('electronics-workshop')">Atelier d'électronique</li>
             </ul>
         </div>
         
-        <div id="soil-water-lab" class="section">
-            <button class="back-btn" onclick="showSection('main-menu')">العودة إلى القائمة الرئيسية</button>
+        <div id="lab-1" class="section">
+            <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
             <hr>
-            <h2>مخبر تحليل التربة والمياه</h2>
+            <h2>Laboratoire physico-chimique</h2>
             <div class="lab-details">
-                <h3>تعريف بالمخبر</h3>
-                <p>يختص هذا المخبر بإجراء التحليلات الفيزيائية والكيميائية للتربة ومصادر المياه المختلفة. يحتوي على أجهزة متطورة لقياس درجة الحموضة (pH)، الملوحة، الملوثات العضوية، والمعادن الثقيلة، بالإضافة إلى معدات لجمع العينات وتحليلها.</p>
-                <h3>الأجهزة والمعدات</h3>
+                <h3>Présentation du laboratoire</h3>
+                <p>Ce laboratoire se spécialise dans les analyses physiques et chimiques des sols, des eaux et de l'air. Il est équipé d'appareils sophistiqués pour mesurer le pH, la salinité, les polluants et les métaux lourds.</p>
+                <h3>Équipements et instruments</h3>
                 <ul>
-                    <li>جهاز قياس الحموضة (pH-meter)</li>
-                    <li>جهاز قياس الملوحة (Salinity meter)</li>
-                    <li>جهاز تحليل كروماتوغرافي (Chromatography)</li>
-                    <li>أجهزة قياس المعادن الثقيلة</li>
+                    <li>pH-mètre</li>
+                    <li>Salinimètre</li>
+                    <li>Appareil de chromatographie</li>
+                    <li>Appareils de mesure des métaux lourds</li>
                 </ul>
             </div>
             <hr>
-            <h2>نموذج طلب حجز</h2>
-            <form id="form-soil-water" onsubmit="sendEmail(event, 'form-soil-water')">
-                <label for="full-name-1">الاسم الكامل:</label>
-                <input type="text" id="full-name-1" name="name" required>
-                <label for="email-1">البريد الإلكتروني:</label>
+            <h2>Formulaire de demande de réservation</h2>
+            <form id="form-lab-1" onsubmit="sendEmail(event, 'form-lab-1')">
+                <label for="name-1">Nom complet:</label>
+                <input type="text" id="name-1" name="name" required>
+                <label for="email-1">E-mail:</label>
                 <input type="email" id="email-1" name="email" required>
-                <label for="date-1">تاريخ الحجز:</label>
+                <label for="date-1">Date de réservation:</label>
                 <input type="date" id="date-1" name="date" required>
-                <label for="purpose-1">الغرض من الاستخدام (مشروع البحث):</label>
+                <label for="purpose-1">Objet de la demande (projet de recherche):</label>
                 <textarea id="purpose-1" name="purpose" rows="5" required></textarea>
-                <button type="submit">إرسال طلب الحجز</button>
+                <button type="submit">Envoyer la demande de réservation</button>
             </form>
         </div>
 
-        <div id="renewable-energy-lab" class="section">
-            <button class="back-btn" onclick="showSection('main-menu')">العودة إلى القائمة الرئيسية</button>
+        <div id="lab-2" class="section">
+            <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
             <hr>
-            <h2>مخبر الطاقة المتجددة</h2>
+            <h2>Laboratoire de surveillance environnementale</h2>
             <div class="lab-details">
-                <h3>تعريف بالمخبر</h3>
-                <p>مخصص للبحوث المتعلقة بمصادر الطاقة المتجددة، مثل الطاقة الشمسية وطاقة الرياح. يتضمن أجهزة لمحاكاة الظروف البيئية، واختبار كفاءة الألواح الشمسية، وتطوير أنظمة تخزين الطاقة.</p>
-                <h3>الأجهزة والمعدات</h3>
+                <h3>Présentation du laboratoire</h3>
+                <p>Ce laboratoire est dédié à la surveillance et à l'évaluation de la qualité de l'environnement, y compris l'air, l'eau et le sol. Il utilise des équipements de pointe pour la détection et l'analyse des polluants environnementaux.</p>
+                <h3>Équipements et instruments</h3>
                 <ul>
-                    <li>ألواح شمسية ومقاييس إشعاع</li>
-                    <li>أجهزة محاكاة الظروف البيئية</li>
-                    <li>بطاريات وأنظمة تخزين طاقة</li>
+                    <li>Analyseurs de gaz</li>
+                    <li>Systèmes de surveillance de la qualité de l'eau</li>
+                    <li>Appareils de mesure de la pollution sonore</li>
                 </ul>
             </div>
             <hr>
-            <h2>نموذج طلب حجز</h2>
-            <form id="form-renewable-energy" onsubmit="sendEmail(event, 'form-renewable-energy')">
-                <label for="full-name-2">الاسم الكامل:</label>
-                <input type="text" id="full-name-2" name="name" required>
-                <label for="email-2">البريد الإلكتروني:</label>
+            <h2>Formulaire de demande de réservation</h2>
+            <form id="form-lab-2" onsubmit="sendEmail(event, 'form-lab-2')">
+                <label for="name-2">Nom complet:</label>
+                <input type="text" id="name-2" name="name" required>
+                <label for="email-2">E-mail:</label>
                 <input type="email" id="email-2" name="email" required>
-                <label for="date-2">تاريخ الحجز:</label>
+                <label for="date-2">Date de réservation:</label>
                 <input type="date" id="date-2" name="date" required>
-                <label for="purpose-2">الغرض من الاستخدام (مشروع البحث):</label>
+                <label for="purpose-2">Objet de la demande (projet de recherche):</label>
                 <textarea id="purpose-2" name="purpose" rows="5" required></textarea>
-                <button type="submit">إرسال طلب الحجز</button>
+                <button type="submit">Envoyer la demande de réservation</button>
             </form>
         </div>
 
-        <div id="biodiversity-lab" class="section">
-            <button class="back-btn" onclick="showSection('main-menu')">العودة إلى القائمة الرئيسية</button>
+        <div id="lab-3" class="section">
+            <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
             <hr>
-            <h2>مخبر التنوع البيولوجي</h2>
+            <h2>Laboratoire microbiologique</h2>
             <div class="lab-details">
-                <h3>تعريف بالمخبر</h3>
-                <p>يركز على دراسة الكائنات الحية وتفاعلها مع البيئة. يوفر معدات لدراسات الحمض النووي (DNA)، وتحليل الجينات، وتصنيف الكائنات، ودراسة النظم البيئية المحلية.</p>
-                <h3>الأجهزة والمعدات</h3>
+                <h3>Présentation du laboratoire</h3>
+                <p>Ce laboratoire se concentre sur l'étude des micro-organismes et de leur rôle dans les écosystèmes. Il est équipé pour l'analyse des bactéries, des champignons et des virus dans les échantillons environnementaux.</p>
+                <h3>Équipements et instruments</h3>
                 <ul>
-                    <li>أجهزة PCR لتحليل DNA</li>
-                    <li>مجاهر رقمية ومناظير</li>
-                    <li>معدات جمع العينات البيولوجية</li>
+                    <li>Microscopes optiques et électroniques</li>
+                    <li>Incubateurs</li>
+                    <li>Matériel de culture microbienne</li>
                 </ul>
             </div>
             <hr>
-            <h2>نموذج طلب حجز</h2>
-            <form id="form-biodiversity" onsubmit="sendEmail(event, 'form-biodiversity')">
-                <label for="full-name-3">الاسم الكامل:</label>
-                <input type="text" id="full-name-3" name="name" required>
-                <label for="email-3">البريد الإلكتروني:</label>
+            <h2>Formulaire de demande de réservation</h2>
+            <form id="form-lab-3" onsubmit="sendEmail(event, 'form-lab-3')">
+                <label for="name-3">Nom complet:</label>
+                <input type="text" id="name-3" name="name" required>
+                <label for="email-3">E-mail:</label>
                 <input type="email" id="email-3" name="email" required>
-                <label for="date-3">تاريخ الحجز:</label>
+                <label for="date-3">Date de réservation:</label>
                 <input type="date" id="date-3" name="date" required>
-                <label for="purpose-3">الغرض من الاستخدام (مشروع البحث):</label>
+                <label for="purpose-3">Objet de la demande (projet de recherche):</label>
                 <textarea id="purpose-3" name="purpose" rows="5" required></textarea>
-                <button type="submit">إرسال طلب الحجز</button>
+                <button type="submit">Envoyer la demande de réservation</button>
             </form>
         </div>
 
-        <div id="environmental-chem-lab" class="section">
-            <button class="back-btn" onclick="showSection('main-menu')">العودة إلى القائمة الرئيسية</button>
+        <div id="lab-4" class="section">
+            <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
             <hr>
-            <h2>مخبر الكيمياء البيئية</h2>
+            <h2>Laboratoire de cyto-toxicologie</h2>
             <div class="lab-details">
-                <h3>تعريف بالمخبر</h3>
-                <p>يقوم بتحليل المواد الكيميائية وتأثيرها على البيئة. يضم أجهزة تحليل كروماتوغرافية (Chromatography) و spectrometers لقياس الملوثات الكيميائية في الهواء والماء والتربة.</p>
-                <h3>الأجهزة والمعدات</h3>
+                <h3>Présentation du laboratoire</h3>
+                <p>Ce laboratoire est spécialisé dans l'étude des effets des substances toxiques sur les cellules vivantes. Il utilise des techniques avancées pour évaluer la toxicité des produits chimiques et des polluants environnementaux.</p>
+                <h3>Équipements et instruments</h3>
                 <ul>
-                    <li>جهاز كروماتوغرافي للغازات</li>
-                    <li>جهاز طيف الأشعة تحت الحمراء</li>
-                    <li>أجهزة قياس تركيز الملوثات</li>
+                    <li>Cytomètres en flux</li>
+                    <li>Microscopes à fluorescence</li>
+                    <li>Équipements de culture cellulaire</li>
                 </ul>
             </div>
             <hr>
-            <h2>نموذج طلب حجز</h2>
-            <form id="form-environmental-chem" onsubmit="sendEmail(event, 'form-environmental-chem')">
-                <label for="full-name-4">الاسم الكامل:</label>
-                <input type="text" id="full-name-4" name="name" required>
-                <label for="email-4">البريد الإلكتروني:</label>
+            <h2>Formulaire de demande de réservation</h2>
+            <form id="form-lab-4" onsubmit="sendEmail(event, 'form-lab-4')">
+                <label for="name-4">Nom complet:</label>
+                <input type="text" id="name-4" name="name" required>
+                <label for="email-4">E-mail:</label>
                 <input type="email" id="email-4" name="email" required>
-                <label for="date-4">تاريخ الحجز:</label>
+                <label for="date-4">Date de réservation:</label>
                 <input type="date" id="date-4" name="date" required>
-                <label for="purpose-4">الغرض من الاستخدام (مشروع البحث):</label>
+                <label for="purpose-4">Objet de la demande (projet de recherche):</label>
                 <textarea id="purpose-4" name="purpose" rows="5" required></textarea>
-                <button type="submit">إرسال طلب الحجز</button>
+                <button type="submit">Envoyer la demande de réservation</button>
             </form>
         </div>
 
         <div id="electronics-workshop" class="section">
-            <button class="back-btn" onclick="showSection('main-menu')">العودة إلى القائمة الرئيسية</button>
+            <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
             <hr>
-            <h2>ورشة الإلكترونيك</h2>
+            <h2>Atelier d'électronique</h2>
             <div class="lab-details">
-                <h3>تعريف بالورشة</h3>
-                <p>توفر هذه الورشة الأدوات والمعدات اللازمة لتصميم وتصنيع وصيانة الأجهزة الإلكترونية المستخدمة في الأبحاث. تشمل معدات اللحام، أجهزة القياس الرقمية، ومعدات النماذج الأولية (prototyping) للدوائر الإلكترونية.</p>
-                <h3>الأجهزة والمعدات</h3>
+                <h3>Présentation de l'atelier</h3>
+                <p>Cet atelier fournit les outils et équipements nécessaires pour la conception, la fabrication et la maintenance des appareils électroniques utilisés dans la recherche. Il comprend des équipements de soudure, des appareils de mesure numériques et des kits de prototypage pour les circuits électroniques.</p>
+                <h3>Équipements et instruments</h3>
                 <ul>
-                    <li>أجهزة لحام إلكترونية</li>
-                    <li>أجهزة قياس رقمية (Multimeters)</li>
-                    <li>أدوات اختبار الدوائر الإلكترونية</li>
+                    <li>Équipements de soudure électronique</li>
+                    <li>Multimètres numériques</li>
+                    <li>Outils de test de circuits électroniques</li>
                 </ul>
             </div>
             <hr>
-            <h2>نموذج طلب حجز</h2>
+            <h2>Formulaire de demande de réservation</h2>
             <form id="form-electronics" onsubmit="sendEmail(event, 'form-electronics')">
-                <label for="full-name-5">الاسم الكامل:</label>
-                <input type="text" id="full-name-5" name="name" required>
-                <label for="email-5">البريد الإلكتروني:</label>
+                <label for="name-5">Nom complet:</label>
+                <input type="text" id="name-5" name="name" required>
+                <label for="email-5">E-mail:</label>
                 <input type="email" id="email-5" name="email" required>
-                <label for="date-5">تاريخ الحجز:</label>
+                <label for="date-5">Date de réservation:</label>
                 <input type="date" id="date-5" name="date" required>
-                <label for="purpose-5">الغرض من الاستخدام (مشروع البحث):</label>
+                <label for="purpose-5">Objet de la demande (projet de recherche):</label>
                 <textarea id="purpose-5" name="purpose" rows="5" required></textarea>
-                <button type="submit">إرسال طلب الحجز</button>
+                <button type="submit">Envoyer la demande de réservation</button>
             </form>
         </div>
     </div>
@@ -306,11 +306,11 @@
 
             emailjs.sendForm('service', 'template_lzc9jl5', form)
                 .then(() => {
-                    alert('تم إرسال طلب الحجز بنجاح!');
+                    alert('Demande de réservation envoyée avec succès !');
                     form.reset();
                 }, (error) => {
-                    alert('فشل إرسال طلب الحجز. يرجى المحاولة مرة أخرى.');
-                    console.log('FAILED...', error);
+                    alert('Échec de l\'envoi de la demande. Veuillez réessayer.');
+                    console.log('ÉCHEC...', error);
                 });
         }
     </script>

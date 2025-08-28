@@ -9,7 +9,8 @@
             font-family: Arial, sans-serif;
             text-align: center;
             color: #333;
-            background-color: #f4f4f9;
+            background-color: #bbdefb;
+            margin-top: 100px;
         }
         .container {
             width: 80%;
@@ -25,6 +26,7 @@
             font-size: 2.5em;
             margin-top: 50px;
             text-align: center;
+            position: relative;
         }
         h2 {
             color: #00695c;
@@ -66,10 +68,10 @@
             display: block;
         }
         .section {
-            display: none; /* Masquer toutes les sections par défaut */
+            display: none;
         }
         .section.active {
-            display: block; /* Afficher la section active */
+            display: block;
         }
         .lab-details p {
             line-height: 1.6;
@@ -97,7 +99,7 @@
             resize: vertical;
         }
         button {
-            background-color: #4CAF50;
+            background-color: #004d40;
             color: white;
             padding: 15px 20px;
             border: none;
@@ -108,7 +110,7 @@
             transition: background-color 0.3s ease;
         }
         button:hover {
-            background-color: #388e3c;
+            background-color: #00332c;
         }
         .back-btn {
             background-color: #6c757d;
@@ -118,12 +120,20 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+            position: fixed;
+            top: 20px;
+            left: 20px; /* تم التعديل هنا لجعله في اليسار */
+            z-index: 1000;
+        }
+        .back-btn:hover {
+            background-color: #5a6268;
         }
     </style>
 </head>
 <body>
+
+    <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
 
     <h1>Centre de recherche en environnement <span class="cre-text">CRE</span></h1>
 
@@ -140,7 +150,6 @@
         </div>
         
         <div id="lab-1" class="section">
-            <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
             <hr>
             <h2>Laboratoire physico-chimique</h2>
             <div class="lab-details">
@@ -157,20 +166,36 @@
             <hr>
             <h2>Formulaire de demande de réservation</h2>
             <form id="form-lab-1" onsubmit="sendEmail(event, 'form-lab-1')">
-                <label for="name-1">Nom complet:</label>
-                <input type="text" id="name-1" name="name" required>
+                <label for="demande_par-1">Demande établie par:</label>
+                <input type="text" id="demande_par-1" name="demande_par" required>
                 <label for="email-1">E-mail:</label>
                 <input type="email" id="email-1" name="email" required>
+                <label for="equipement-1">Equipement:</label>
+                <input type="text" id="equipement-1" name="equipement">
                 <label for="date-1">Date de réservation:</label>
                 <input type="date" id="date-1" name="date" required>
-                <label for="purpose-1">Objet de la demande (projet de recherche):</label>
-                <textarea id="purpose-1" name="purpose" rows="5" required></textarea>
+                <label for="division-1">La division:</label>
+                <select id="division-1" name="division">
+                    <option value="Environnement et Biodiversité">Environnement et Biodiversité</option>
+                    <option value="Environnement et Santé">Environnement et Santé</option>
+                    <option value="Environnement, Modélisation et Changements Climatiques">Environnement, Modélisation et Changements Climatiques</option>
+                    <option value="Environnement et Eco-gestion des Déchets">Environnement et Eco-gestion des Déchets</option>
+                </select>
+                <label for="lab_de-1">Laboratoire de:</label>
+                <select id="lab_de-1" name="lab_de">
+                    <option value="Laboratoire physico-chimique">Laboratoire physico-chimique</option>
+                    <option value="Laboratoire de surveillance environnementale">Laboratoire de surveillance environnementale</option>
+                    <option value="Laboratoire microbiologique">Laboratoire microbiologique</option>
+                    <option value="Laboratoire de cyto-toxicologie">Laboratoire de cyto-toxicologie</option>
+                    <option value="Atelier d'électronique">Atelier d'électronique</option>
+                </select>
+                <label for="objet_demande_travail-1">Objet de la demande de travail:</label>
+                <textarea id="objet_demande_travail-1" name="objet_demande_travail" rows="5" required></textarea>
                 <button type="submit">Envoyer la demande de réservation</button>
             </form>
         </div>
 
         <div id="lab-2" class="section">
-            <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
             <hr>
             <h2>Laboratoire de surveillance environnementale</h2>
             <div class="lab-details">
@@ -186,20 +211,36 @@
             <hr>
             <h2>Formulaire de demande de réservation</h2>
             <form id="form-lab-2" onsubmit="sendEmail(event, 'form-lab-2')">
-                <label for="name-2">Nom complet:</label>
-                <input type="text" id="name-2" name="name" required>
+                <label for="demande_par-2">Demande établie par:</label>
+                <input type="text" id="demande_par-2" name="demande_par" required>
                 <label for="email-2">E-mail:</label>
                 <input type="email" id="email-2" name="email" required>
+                <label for="equipement-2">Equipement:</label>
+                <input type="text" id="equipement-2" name="equipement">
                 <label for="date-2">Date de réservation:</label>
                 <input type="date" id="date-2" name="date" required>
-                <label for="purpose-2">Objet de la demande (projet de recherche):</label>
-                <textarea id="purpose-2" name="purpose" rows="5" required></textarea>
+                <label for="division-2">La division:</label>
+                <select id="division-2" name="division">
+                    <option value="Environnement et Biodiversité">Environnement et Biodiversité</option>
+                    <option value="Environnement et Santé">Environnement et Santé</option>
+                    <option value="Environnement, Modélisation et Changements Climatiques">Environnement, Modélisation et Changements Climatiques</option>
+                    <option value="Environnement et Eco-gestion des Déchets">Environnement et Eco-gestion des Déchets</option>
+                </select>
+                <label for="lab_de-2">Laboratoire de:</label>
+                <select id="lab_de-2" name="lab_de">
+                    <option value="Laboratoire physico-chimique">Laboratoire physico-chimique</option>
+                    <option value="Laboratoire de surveillance environnementale">Laboratoire de surveillance environnementale</option>
+                    <option value="Laboratoire microbiologique">Laboratoire microbiologique</option>
+                    <option value="Laboratoire de cyto-toxicologie">Laboratoire de cyto-toxicologie</option>
+                    <option value="Atelier d'électronique">Atelier d'électronique</option>
+                </select>
+                <label for="objet_demande_travail-2">Objet de la demande de travail:</label>
+                <textarea id="objet_demande_travail-2" name="objet_demande_travail" rows="5" required></textarea>
                 <button type="submit">Envoyer la demande de réservation</button>
             </form>
         </div>
 
         <div id="lab-3" class="section">
-            <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
             <hr>
             <h2>Laboratoire microbiologique</h2>
             <div class="lab-details">
@@ -215,20 +256,36 @@
             <hr>
             <h2>Formulaire de demande de réservation</h2>
             <form id="form-lab-3" onsubmit="sendEmail(event, 'form-lab-3')">
-                <label for="name-3">Nom complet:</label>
-                <input type="text" id="name-3" name="name" required>
+                <label for="demande_par-3">Demande établie par:</label>
+                <input type="text" id="demande_par-3" name="demande_par" required>
                 <label for="email-3">E-mail:</label>
                 <input type="email" id="email-3" name="email" required>
+                <label for="equipement-3">Equipement:</label>
+                <input type="text" id="equipement-3" name="equipement">
                 <label for="date-3">Date de réservation:</label>
                 <input type="date" id="date-3" name="date" required>
-                <label for="purpose-3">Objet de la demande (projet de recherche):</label>
-                <textarea id="purpose-3" name="purpose" rows="5" required></textarea>
+                <label for="division-3">La division:</label>
+                <select id="division-3" name="division">
+                    <option value="Environnement et Biodiversité">Environnement et Biodiversité</option>
+                    <option value="Environnement et Santé">Environnement et Santé</option>
+                    <option value="Environnement, Modélisation et Changements Climatiques">Environnement, Modélisation et Changements Climatiques</option>
+                    <option value="Environnement et Eco-gestion des Déchets">Environnement et Eco-gestion des Déchets</option>
+                </select>
+                <label for="lab_de-3">Laboratoire de:</label>
+                <select id="lab_de-3" name="lab_de">
+                    <option value="Laboratoire physico-chimique">Laboratoire physico-chimique</option>
+                    <option value="Laboratoire de surveillance environnementale">Laboratoire de surveillance environnementale</option>
+                    <option value="Laboratoire microbiologique">Laboratoire microbiologique</option>
+                    <option value="Laboratoire de cyto-toxicologie">Laboratoire de cyto-toxicologie</option>
+                    <option value="Atelier d'électronique">Atelier d'électronique</option>
+                </select>
+                <label for="objet_demande_travail-3">Objet de la demande de travail:</label>
+                <textarea id="objet_demande_travail-3" name="objet_demande_travail" rows="5" required></textarea>
                 <button type="submit">Envoyer la demande de réservation</button>
             </form>
         </div>
 
         <div id="lab-4" class="section">
-            <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
             <hr>
             <h2>Laboratoire de cyto-toxicologie</h2>
             <div class="lab-details">
@@ -244,20 +301,36 @@
             <hr>
             <h2>Formulaire de demande de réservation</h2>
             <form id="form-lab-4" onsubmit="sendEmail(event, 'form-lab-4')">
-                <label for="name-4">Nom complet:</label>
-                <input type="text" id="name-4" name="name" required>
+                <label for="demande_par-4">Demande établie par:</label>
+                <input type="text" id="demande_par-4" name="demande_par" required>
                 <label for="email-4">E-mail:</label>
                 <input type="email" id="email-4" name="email" required>
+                <label for="equipement-4">Equipement:</label>
+                <input type="text" id="equipement-4" name="equipement">
                 <label for="date-4">Date de réservation:</label>
                 <input type="date" id="date-4" name="date" required>
-                <label for="purpose-4">Objet de la demande (projet de recherche):</label>
-                <textarea id="purpose-4" name="purpose" rows="5" required></textarea>
+                <label for="division-4">La division:</label>
+                <select id="division-4" name="division">
+                    <option value="Environnement et Biodiversité">Environnement et Biodiversité</option>
+                    <option value="Environnement et Santé">Environnement et Santé</option>
+                    <option value="Environnement, Modélisation et Changements Climatiques">Environnement, Modélisation et Changements Climatiques</option>
+                    <option value="Environnement et Eco-gestion des Déchets">Environnement et Eco-gestion des Déchets</option>
+                </select>
+                <label for="lab_de-4">Laboratoire de:</label>
+                <select id="lab_de-4" name="lab_de">
+                    <option value="Laboratoire physico-chimique">Laboratoire physico-chimique</option>
+                    <option value="Laboratoire de surveillance environnementale">Laboratoire de surveillance environnementale</option>
+                    <option value="Laboratoire microbiologique">Laboratoire microbiologique</option>
+                    <option value="Laboratoire de cyto-toxicologie">Laboratoire de cyto-toxicologie</option>
+                    <option value="Atelier d'électronique">Atelier d'électronique</option>
+                </select>
+                <label for="objet_demande_travail-4">Objet de la demande de travail:</label>
+                <textarea id="objet_demande_travail-4" name="objet_demande_travail" rows="5" required></textarea>
                 <button type="submit">Envoyer la demande de réservation</button>
             </form>
         </div>
 
         <div id="electronics-workshop" class="section">
-            <button class="back-btn" onclick="showSection('main-menu')">Retour au menu principal</button>
             <hr>
             <h2>Atelier d'électronique</h2>
             <div class="lab-details">
@@ -273,14 +346,31 @@
             <hr>
             <h2>Formulaire de demande de réservation</h2>
             <form id="form-electronics" onsubmit="sendEmail(event, 'form-electronics')">
-                <label for="name-5">Nom complet:</label>
-                <input type="text" id="name-5" name="name" required>
+                <label for="demande_par-5">Demande établie par:</label>
+                <input type="text" id="demande_par-5" name="demande_par" required>
                 <label for="email-5">E-mail:</label>
                 <input type="email" id="email-5" name="email" required>
+                <label for="equipement-5">Equipement:</label>
+                <input type="text" id="equipement-5" name="equipement">
                 <label for="date-5">Date de réservation:</label>
                 <input type="date" id="date-5" name="date" required>
-                <label for="purpose-5">Objet de la demande (projet de recherche):</label>
-                <textarea id="purpose-5" name="purpose" rows="5" required></textarea>
+                <label for="division-5">La division:</label>
+                <select id="division-5" name="division">
+                    <option value="Environnement et Biodiversité">Environnement et Biodiversité</option>
+                    <option value="Environnement et Santé">Environnement et Santé</option>
+                    <option value="Environnement, Modélisation et Changements Climatiques">Environnement, Modélisation et Changements Climatiques</option>
+                    <option value="Environnement et Eco-gestion des Déchets">Environnement et Eco-gestion des Déchets</option>
+                </select>
+                <label for="lab_de-5">Laboratoire de:</label>
+                <select id="lab_de-5" name="lab_de">
+                    <option value="Laboratoire physico-chimique">Laboratoire physico-chimique</option>
+                    <option value="Laboratoire de surveillance environnementale">Laboratoire de surveillance environnementale</option>
+                    <option value="Laboratoire microbiologique">Laboratoire microbiologique</option>
+                    <option value="Laboratoire de cyto-toxicologie">Laboratoire de cyto-toxicologie</option>
+                    <option value="Atelier d'électronique">Atelier d'électronique</option>
+                </select>
+                <label for="objet_demande_travail-5">Objet de la demande de travail:</label>
+                <textarea id="objet_demande_travail-5" name="objet_demande_travail" rows="5" required></textarea>
                 <button type="submit">Envoyer la demande de réservation</button>
             </form>
         </div>

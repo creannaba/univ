@@ -98,19 +98,37 @@
         textarea {
             resize: vertical;
         }
-        button {
-            background-color: #004d40;
-            color: white;
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .form-buttons button, .form-buttons a {
+            flex: 1;
             padding: 15px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1.2em;
-            margin-top: 20px;
+            margin: 0 5px;
+            text-decoration: none;
+            text-align: center;
             transition: background-color 0.3s ease;
         }
-        button:hover {
+        .submit-btn {
+            background-color: #004d40;
+            color: white;
+        }
+        .submit-btn:hover {
             background-color: #00332c;
+        }
+        .download-btn {
+            background-color: #1976D2;
+            color: white;
+        }
+        .download-btn:hover {
+            background-color: #1565C0;
         }
         .back-btn {
             background-color: #6c757d;
@@ -123,7 +141,7 @@
             transition: background-color 0.3s ease;
             position: fixed;
             top: 20px;
-            left: 20px; /* تم التعديل هنا لجعله في اليسار */
+            left: 20px;
             z-index: 1000;
         }
         .back-btn:hover {
@@ -191,7 +209,10 @@
                 </select>
                 <label for="objet_demande_travail-1">Objet de la demande de travail:</label>
                 <textarea id="objet_demande_travail-1" name="objet_demande_travail" rows="5" required></textarea>
-                <button type="submit">Envoyer la demande de réservation</button>
+                <div class="form-buttons">
+                    <button type="submit" class="submit-btn">Envoyer la demande de réservation</button>
+                    <button type="button" onclick="generatePDF('form-lab-1')" class="download-btn">Télécharger le formulaire PDF</button>
+                </div>
             </form>
         </div>
 
@@ -236,7 +257,10 @@
                 </select>
                 <label for="objet_demande_travail-2">Objet de la demande de travail:</label>
                 <textarea id="objet_demande_travail-2" name="objet_demande_travail" rows="5" required></textarea>
-                <button type="submit">Envoyer la demande de réservation</button>
+                <div class="form-buttons">
+                    <button type="submit" class="submit-btn">Envoyer la demande de réservation</button>
+                    <button type="button" onclick="generatePDF('form-lab-2')" class="download-btn">Télécharger le formulaire PDF</button>
+                </div>
             </form>
         </div>
 
@@ -245,7 +269,7 @@
             <h2>Laboratoire microbiologique</h2>
             <div class="lab-details">
                 <h3>Présentation du laboratoire</h3>
-                <p>Ce laboratoire se concentre sur l'étude des micro-organismes et de leur rôle dans les écosystèmes. Il est équipé pour l'analyse des bactéries, des champignons et des virus dans les échantillons environnementaux.</p>
+                <p>Ce laboratoire se concentre sur l'étude des micro-organismes et de leur rôle dans les écosystèmes. Il est équipé للـ pour l'analyse des bactéries, des champignons et des virus dans les échantillons environnementaux.</p>
                 <h3>Équipements et instruments</h3>
                 <ul>
                     <li>Microscopes optiques et électroniques</li>
@@ -281,7 +305,10 @@
                 </select>
                 <label for="objet_demande_travail-3">Objet de la demande de travail:</label>
                 <textarea id="objet_demande_travail-3" name="objet_demande_travail" rows="5" required></textarea>
-                <button type="submit">Envoyer la demande de réservation</button>
+                <div class="form-buttons">
+                    <button type="submit" class="submit-btn">Envoyer la demande de réservation</button>
+                    <button type="button" onclick="generatePDF('form-lab-3')" class="download-btn">Télécharger le formulaire PDF</button>
+                </div>
             </form>
         </div>
 
@@ -326,7 +353,10 @@
                 </select>
                 <label for="objet_demande_travail-4">Objet de la demande de travail:</label>
                 <textarea id="objet_demande_travail-4" name="objet_demande_travail" rows="5" required></textarea>
-                <button type="submit">Envoyer la demande de réservation</button>
+                <div class="form-buttons">
+                    <button type="submit" class="submit-btn">Envoyer la demande de réservation</button>
+                    <button type="button" onclick="generatePDF('form-lab-4')" class="download-btn">Télécharger le formulaire PDF</button>
+                </div>
             </form>
         </div>
 
@@ -371,11 +401,16 @@
                 </select>
                 <label for="objet_demande_travail-5">Objet de la demande de travail:</label>
                 <textarea id="objet_demande_travail-5" name="objet_demande_travail" rows="5" required></textarea>
-                <button type="submit">Envoyer la demande de réservation</button>
+                <div class="form-buttons">
+                    <button type="submit" class="submit-btn">Envoyer la demande de réservation</button>
+                    <button type="button" onclick="generatePDF('form-electronics')" class="download-btn">Télécharger le formulaire PDF</button>
+                </div>
             </form>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable@3.8.1/dist/jspdf.plugin.autotable.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
@@ -402,6 +437,54 @@
                     alert('Échec de l\'envoi de la demande. Veuillez réessayer.');
                     console.log('ÉCHEC...', error);
                 });
+        }
+        
+        function generatePDF(formId) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const form = document.getElementById(formId);
+            const formData = new FormData(form);
+
+            // تحضير البيانات للجدول
+            const tableRows = [];
+            const dataMapping = {
+                'demande_par': 'Demandeur',
+                'email': 'E-mail',
+                'equipement': 'Équipement',
+                'date': 'Date de réservation',
+                'division': 'Division',
+                'lab_de': 'Laboratoire',
+                'objet_demande_travail': 'Objet de la demande'
+            };
+
+            for (let pair of formData.entries()) {
+                const [key, value] = pair;
+                if (dataMapping[key]) {
+                    tableRows.push([dataMapping[key], value]);
+                }
+            }
+
+            // إضافة عنوان PDF الجديد
+            doc.setFontSize(18);
+            doc.text("Demande de travail", 14, 20);
+
+            // إضافة الجدول بدون رؤوس الأعمدة
+            doc.autoTable({
+                startY: 30,
+                head: [],
+                body: tableRows,
+            });
+
+            // إضافة قسم التوقيعات
+            const finalY = doc.autoTable.previous.finalY + 20;
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const padding = 20;
+            
+            doc.setFontSize(12);
+            doc.text("Directeur de division", padding, finalY);
+            doc.text("L’intéressé(e)", pageWidth - padding - doc.getTextWidth("L’intéressé(e)"), finalY);
+            
+            doc.save("Demande_de_travail.pdf");
         }
     </script>
 
